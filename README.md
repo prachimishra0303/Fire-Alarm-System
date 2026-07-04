@@ -11,9 +11,6 @@ This project simulates a Fire Alarm System using Arduino in Tinkercad. It detect
 - Resistors
 - Breadboard
 
-## Circuit
-![Circuit](circuit.png)
-
 ## How It Works
 - Reads the temperature sensor.
 - Compares the value with a threshold.
