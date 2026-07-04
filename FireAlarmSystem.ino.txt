@@ -1,0 +1,31 @@
+int gasSensor = A0;   
+int tempSensor = A1;    
+int buzzer = 7;
+int led = 12;
+
+void setup() {
+  pinMode(buzzer, OUTPUT);
+  pinMode(led, OUTPUT);
+  Serial.begin(9600);
+}
+void loop() {
+  int gasValue = analogRead(gasSensor);
+  int tempValue = analogRead(tempSensor);
+  float voltage = tempValue * (5.0 / 1023.0);
+  float temperature = (voltage - 0.5) * 100;
+  Serial.print("Gas: ");
+  Serial.print(gasValue);
+  Serial.print("Temperature:");
+  Serial.println(temperature);
+  if (gasValue > 50 || temperature > 30)
+  {
+    digitalWrite(buzzer, HIGH);
+    digitalWrite(led, HIGH);
+  }
+  else 
+  {
+    digitalWrite(buzzer, LOW);
+    digitalWrite(led, LOW);
+  }
+  delay(500);
+}
